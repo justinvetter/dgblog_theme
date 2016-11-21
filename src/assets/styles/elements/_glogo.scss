@@ -1,0 +1,59 @@
+.glogo {
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  @media (max-width: 1350px) {
+    top: 1em;
+    left: 1em;
+    .glogo__circle {
+      width: $glogo-size * .85;
+      height: $glogo-size * .85;
+    }
+    .glogo__tagline {
+      width: 11em;
+      transform: translate(10%, -36%);
+    }
+  }
+  @media (max-width: 940px) {
+    top: 1em;
+    right: 1em;
+    .glogo__circle {
+      width: $glogo-size * .65;
+      height: $glogo-size * .65;
+    }
+    .glogo__tagline {
+      width: 9em;
+      transform: translate(10%, -29%);
+    }
+  }
+  @media (max-width: 360px) {
+    .glogo__tagline {
+      display: none;
+    }
+  }
+  &__circle {
+    width: $glogo-size;
+    height: $glogo-size;
+    border-radius: 50%;
+    background-color: $color-dg-blue;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: inline-block;
+    background-image: url(../images/AFG-PAK-Border_WaziristanHills_May25_2015_WV2_2m_SpectralStack.jpg);
+    img {
+      width: 85%;
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__tagline {
+    display: inline-block;
+    width: 10em;
+    position: relative;
+    transform: translate(10%, -88%);
+    height: $glogo-size/2;
+  }
+}

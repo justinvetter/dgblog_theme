@@ -102,11 +102,15 @@ add_action( 'widgets_init', 'dgblog_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dgblog_theme_scripts() {
+  
+  wp_enqueue_style( 'dgblog_theme-vendor', get_template_directory_uri() . '/assets/styles/vendor.css');
 	wp_enqueue_style( 'dgblog_theme-style', get_stylesheet_uri() );
+  wp_enqueue_style( 'dgblog_theme-theme', get_template_directory_uri() . '/assets/styles/main.css');
 
 	wp_enqueue_script( 'dgblog_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'dgblog_theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+  wp_enqueue_script( 'dgblog_theme-vendorjs', get_template_directory_uri() . '/assets/scripts/vendor.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -142,6 +146,12 @@ require get_template_directory() . '/inc/jetpack.php';
 
 add_filter( 'wp_nav_menu_items', 'add_nav_menu_items', 10, 2 );
 
+function wpdocs_excerpt_more( $more ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+
+
 function add_nav_menu_items( $items, $args ) {
   ob_start(); // start the output buffer
   ?>
@@ -160,3 +170,41 @@ function add_nav_menu_items( $items, $args ) {
   $customSearch = ob_get_clean();
   return $items . $customSearch;
 }
+
+
+function add_image_class($class) {
+  $class .= 'article_image top';
+  return $class;
+}
+add_filter('get_image_tag_class', 'add_image_claaa');
+
+function WPTime_add_custom_class_to_all_images($content){
+    /* Filter by Qassim Hassan - http://wp-time.com */
+    $my_custom_class = "article__image"; // your custom class
+    $add_class = str_replace('<img class="', '<img class="'.$my_custom_class.' ', $content); // add class
+    return $add_class; // display class to image
+}
+add_filter('the_content', 'WPTime_add_custom_class_to_all_images');
+
+add_filter('next_posts_link_attributes', 'sdac_next_posts_link_attributes');
+function sdac_next_posts_link_attributes(){
+        return 'class="btn btn__black"';
+}
+ 
+add_filter('previous_posts_link_attributes', 'sdac_previous_posts_link_attributes');
+function sdac_previous_posts_link_attributes(){
+        return 'class="btn btn__black"';
+}
+
+add_filter('next_post_link', 'next_post_link_attributes');
+add_filter('previous_post_link', 'prev_post_link_attributes');
+ 
+function next_post_link_attributes($output) {
+    $code = 'class="btn btn__black"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+function prev_post_link_attributes($output) {
+    $code = 'class="btn btn__black"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+

@@ -1,0 +1,171 @@
+.navbar {
+  height: 80px;
+  background-color: $color-light-gray;
+  font-size: em(18);
+  border-bottom: 0;
+  border: none;
+  margin-bottom: 0;
+  border-radius: 0;
+  z-index: 9999;
+  transition: height .15s ease-in-out;
+  .navbar-toggle {
+    margin-left: 15px;
+    margin-top: 20px;
+    padding: 9px 10px;
+  }
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+    @media (max-width: 1024px) {
+      &.in {
+        margin-left: -15px;
+        .navbar-nav {
+          background-color: $color-light-gray;
+          margin: 0;
+          overflow-y: hidden;
+          li {
+            
+            a {
+              display: block;
+              width: 100%;
+              height: 100%;
+              padding: 1em;
+              &:hover{
+                background-color: $color-mid-gray;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ul.navbar-nav {
+    height: 100%;
+    li {
+      height: 100%;
+      padding-right: 15px;
+      a {
+        padding-top: 30px;
+        height: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        transition: padding-top .15s ease-in-out;
+        font-size: 16px;
+        color: $color-dark-gray;
+      }
+    }
+  }
+  button {
+    padding-top: 25px;
+  }
+  .navbar-form {
+    padding-top: 15px;
+    transition: padding-top .15s ease-in-out;
+  }
+  .search {
+    position: relative;
+    width: 95%;
+    top: 9px;
+    left: 0;
+    height: 100%;
+    display: none;
+    transition: padding-top .15s ease-in-out;
+    #searchbar {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 100%;
+      display: none;
+      z-index: 9999;
+      background: $color-light-gray;
+    }
+    #s {
+      display: block;
+      width: 98%;
+      border: 0;
+      outline: none;
+      height: 60px;
+      padding: 0 0 0 15px;
+      line-height: 60px;
+      font-size: 1em;
+      font-weight: 100;
+      color: $color-dark-gray;
+      background-color: $color-light-gray;
+      transition: height .15s ease-in-out;
+    }
+    #searchsubmit {
+      display: block;
+      float: right;
+      margin-top: 6px;
+      background: none;
+      color: #717171;
+      border: 0;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.affix {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  @media (min-width: 1024px) {
+    &.navbar {
+      height: 50px;
+      ul {
+        li {
+          a {
+            padding-top: 15px
+          }
+        }
+      }
+      button {
+        padding-top: 8px;
+      }
+      .navbar-form {
+        padding-top: 0;
+      }
+      .search {
+        top: 0;
+        #searchbar {
+          #s {
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav__dots-all {
+  @include navDots($color-all);
+}
+
+.nav__dots-news {
+  @include navDots($color-news);
+}
+
+.nav__dots-industry {
+  @include navDots($color-industry);
+}
+
+.nav__dots-geospatial {
+  @include navDots($color-geospatial);
+}
+
+.nav__dots-technologies {
+  @include navDots($color-technologies);
+}
+
+.nav__dots-developers {
+  @include navDots($color-developers);
+}
+
+.nav__dots-crowd {
+  @include navDots($color-crowd);
+}

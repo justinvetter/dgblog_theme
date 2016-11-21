@@ -1,0 +1,28 @@
+.btn{
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 20px;
+  width: 120px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.btn__black{
+  color: $color-black !important;
+  border-color: $color-black;
+  &:hover{
+    background-color: $color-black;
+    color: $color-white !important;
+  }
+}
+
+.btn__white{
+  color: $color-white;
+  border-color: $color-white;
+  &:hover{
+    background-color: $color-white;
+    color: $color-black;
+  }
+}

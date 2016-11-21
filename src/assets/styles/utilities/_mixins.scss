@@ -1,0 +1,81 @@
+@function em($pixels, $context: $browser-base-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1em;
+}
+
+@mixin navDots($color) {
+  a {
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 0.2em 0.2em 0;
+      background-color: $color;
+    }
+  }
+}
+
+@mixin shareCategories($color) {
+  .share {
+    p {
+      color: $color;
+    }
+  }
+  @include socialIcons($color);
+}
+
+@mixin socialIcons($color) {
+  .social {
+    border-color: $color;
+    .social__icon {
+      stroke: $color;
+      fill: $color;
+      color: $color;
+    }
+    &:hover {
+      background-color: $color;
+      .social__icon {
+        stroke: $color-white;
+        fill: $color-white;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+@mixin articleCategories($color) {
+  .article__header,
+  .article__featureimage aside {
+    background-color: $color;
+  }
+  .has-pullquote {
+    &:before {
+      background-color: $color;
+    }
+  }
+  .post {
+    a {
+      color: $color;
+      font-weight: normal;
+      &[style] {
+        color: $color !important;
+        font-weight: normal !important;
+      }
+    }
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

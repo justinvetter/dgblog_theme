@@ -1,0 +1,99 @@
+.related {
+  padding: 10px 30px 30px 30px;
+  h4 {
+    padding: 0;
+    margin: 0 0 48px 0;
+  }
+  ul {
+    margin: 0 auto;
+    padding: 0;
+    -js-display:flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    li {
+      margin: 25px auto;
+      padding: 0;
+      list-style: none;
+      display: block;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      @media (min-width: 540px) {
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        margin: 0 50px 0 0;
+        &:last-child {
+          margin: 0;
+        }
+      }
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        img {
+          min-width: 100%;
+          position: relative;
+          bottom: 65px;
+          transition: bottom .25s ease-in-out;
+        }
+        @media (min-width: 540px) {
+          img {
+            bottom: 0;
+          }
+          &:hover {
+            img {
+              bottom: 65px;
+            }
+            .related__title {
+              bottom: -25px;
+            }
+          }
+          .related__title {
+            bottom: -185px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.related__title {
+  padding: 15px;
+  height: 200px;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  transition: bottom .25s ease-in-out;
+  color: $color-white;
+}
+
+.category__news {
+  background-color: $color-news;
+}
+
+.category__industry {
+  background-color: $color-industry;
+}
+
+.category__geospatial {
+  background-color: $color-geospatial;
+}
+
+.category__technologies {
+  background-color: $color-technologies;
+}
+
+.category__developers {
+  background-color: $color-developers;
+}
+
+.category__crowd {
+  background-color: $color-crowd;
+}

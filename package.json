@@ -1,0 +1,47 @@
+{
+  "name": "dgblog_theme",
+  "version": "0.0.1",
+  "description": "DigitalGlobe Blog Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://jj004095@github.digitalglobe.com/creativeservices/dgblog_theme.git"
+  },
+  "author": "Justin Vetter",
+  "license": "ISC",
+  "devDependencies": {
+    "beepbeep": "^1.2.0",
+    "browser-sync": "^2.17.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-bower": "0.0.13",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-minify": "0.0.14",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-real-favicon": "^0.2.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "main-bower-files": "^2.13.1",
+    "minimist": "^1.2.0",
+    "run-sequence": "^1.2.2",
+    "stream-series": "^0.1.1",
+    "wiredep": "^4.0.0"
+  }
+}

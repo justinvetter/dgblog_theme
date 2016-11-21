@@ -1,0 +1,41 @@
+{
+  "name": "dgblog_theme",
+  "description": "DigitalGlobe Blog Theme",
+  "main": "index.js",
+  "authors": [
+    "Justin Vetter"
+  ],
+  "license": "ISC",
+  "homepage": "http://blog.digitalglobe.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "modernizer": "^2.8.2",
+    "transformicons": "https://github.com/justinvetter/transformicons.git#^0.4.8",
+    "flexibility": "^2.0.1"
+  },
+  "overrides": {
+    "modernizer": {
+      "main": [
+        "./modernizer.js"
+      ]
+    },
+    "bootstrap-sass": {
+      "main": [
+        "./assets/stylesheets/_bootstrap.scss",
+        "./assets/javascripts/bootstrap.js",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+      ]
+    }
+  }
+}

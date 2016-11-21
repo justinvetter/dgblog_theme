@@ -1,0 +1,20 @@
+// File to override bootstrap variables
+
+$container-lg: 990px;
+$grid-float-breakpoint: 1024px;
+
+
+
+// Transformicons Overrides
+
+// * Search Icon
+$tcon-size: 45px;
+$tcon-search-color: $color-dark-gray;
+$tcon-search-glass-color: $color-light-gray;
+$tcon-search-radius: 0;
+$tcon-search-handle-width: ($tcon-size / 11);
+$tcon-search-glass-radius: ($tcon-size / 2.5);
+$tcon-search-glass-border-width: ($tcon-size / 20);
+
+
+

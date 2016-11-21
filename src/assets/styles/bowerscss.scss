@@ -1,0 +1,7 @@
+// Override Bootstrap Variables
+@import '../../../src/assets/styles/variables';
+@import '../../../src/assets/styles/bootstrap-overrides';
+
+// don't do anything blow this.  This is just used by bower and gulp
+// bower:scss
+// endbower 

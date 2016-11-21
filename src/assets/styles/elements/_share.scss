@@ -1,0 +1,43 @@
+.share {
+  width: 48px;
+  position: absolute;
+  left: 72px;
+  margin-top: 72px;
+  transition: opacity .25s ease;
+  p {
+    font-size: 12px;
+    text-align: center;
+    font-weight: 100;
+  }
+  &.affix {
+    position: absolute;
+    top: 30px;
+  }
+  .social{
+    margin-bottom: 1em;
+  }
+}
+
+
+
+
+//Colorchange for categories
+.category-news {
+  @include shareCategories($color-news);
+}
+.category-industry {
+  @include shareCategories($color-industry);
+}
+.category-geospatial {
+  @include shareCategories($color-geospatial);
+}
+.category-technologies {
+  @include shareCategories($color-technologies);
+}
+.category-developers {
+  @include shareCategories($color-developers);
+}
+.category-crowd {
+  @include shareCategories($color-crowd);
+}
+

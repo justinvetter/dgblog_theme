@@ -14,20 +14,22 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-		<?php
+  <div id="primary" class="content-area page__content">
+    <main id="main" class="site-main" role="main">
+      <?php if ( is_home() && ! is_front_page() ) : ?>
+        <section class="page__title">
+          <div class="container">
+            <h2 class="screen-reader-text"><?php single_post_title(); ?></h2>
+          </div>
+        </section>
+        <?php endif; ?>
+          <section>
+            <div class="container">
+              <?php
 		if ( have_posts() ) :
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-
-			<?php
-			endif;
-
+			
+            
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
@@ -40,17 +42,23 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_navigation( array(
+        'prev_text'  => 'Previous',
+        'next_text'  => 'Next'
+      ));
 
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
+            </div>
+          </section>
+    </main>
+    <!-- #main -->
+  </div>
+  <!-- #primary -->
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
+  <?php
 get_sidebar();
 get_footer();
