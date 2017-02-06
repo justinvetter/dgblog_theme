@@ -238,7 +238,7 @@ gulp.task('bower:concat', function () {
 
 gulp.task('bower:wiredep', function () {
   return gulp.src(config.src + config.styles + '/bowerscss.scss')
-    .pipe(wiredep())
+    .pipe(wiredep({ignorePath: '../'}))
     .pipe(gulp.dest(productionDest + config.styles))
 });
 

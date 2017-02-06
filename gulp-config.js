@@ -1,5 +1,5 @@
 var src = './src';
-var dist = './dist';
+var dist = './';
 var temp = './.tmp';
 var styles = '/assets/styles';
 var scripts = '/assets/scripts';
