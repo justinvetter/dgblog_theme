@@ -9,15 +9,20 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
+	<section id="primary" class="content-area page__content">
 		<main id="main" class="site-main" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
+      
+      
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'dgblog_theme' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+			<section class="page__title">
+        <div class="container">
+          <h2><?php printf( esc_html__( 'Search Results for: %s', 'dgblog_theme' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
+        </div>
+			</section>
+
 
 			<?php
 			/* Start the Loop */

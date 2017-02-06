@@ -9,15 +9,25 @@
 }
 
 @mixin navDots($color) {
-  a {
-    &:before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0 0.2em 0.2em 0;
-      background-color: $color;
+  &.menu-item.current-menu-item {
+    a {
+      color: $color;
+    }
+  }
+  &.menu-item {
+    & > a {
+      &:hover {
+        color: $color !important;
+      }
+      &:before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 0.2em 0.2em 0;
+        background-color: $color;
+      }
     }
   }
 }

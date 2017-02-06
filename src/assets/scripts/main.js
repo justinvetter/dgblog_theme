@@ -1,6 +1,6 @@
 //Main Js
 transformicons.add('.tcon');
-
+console.log('test');
 
 $(function () {
   var $searchlink = $('#serachicon');

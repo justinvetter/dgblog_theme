@@ -19,7 +19,9 @@ get_header(); ?>
       <?php if ( is_home() && ! is_front_page() ) : ?>
         <section class="page__title">
           <div class="container">
-            <h2 class="screen-reader-text"><?php single_post_title(); ?></h2>
+            <?php
+            the_archive_title( '<h2>', '</h2>' );
+          ?>
           </div>
         </section>
         <?php endif; ?>

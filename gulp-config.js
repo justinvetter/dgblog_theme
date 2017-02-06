@@ -24,4 +24,4 @@ module.exports ={
   images: images,
   video: video,
   gtm: gtm
-}
+};

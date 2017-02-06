@@ -30,7 +30,19 @@
         <div class="masthead">
           <a href="<?php echo esc_url( home_url() ); ?>">
             <div class="glogo">
-              <div class="glogo__circle" style="background-image: url(<?php header_image(); ?>)">
+              <?php
+              
+              
+              $image = get_field('glogo_image', 'option');
+              
+              
+              $url = $image['url'];
+              $size = 'medium'; // (thumbnail, medium, large, full or custom size)
+              $glogoURL = $image['sizes'][$size];
+              
+              
+              ?>
+              <div class="glogo__circle" style="background-image: url(<?php echo $glogoURL; ?>)">
                 <img src="<?php echo get_template_directory_uri() ?>/assets/images/dg-logo.svg">
               </div>
               <div class="glogo__tagline">

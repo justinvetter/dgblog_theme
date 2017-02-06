@@ -48,7 +48,7 @@
           <div class="footer__links clearfix">
             <div class="col-xs-4">
               <ul>
-                <li><a href="https://www.digitalglobe.com/about/overview" target="_blank">About Us</a></li>
+                <li><a href="https://www.digitalglobe.com/about" target="_blank">About Us</a></li>
                 <li><a href="https://www.digitalglobe.com/news" target="_blank">Newsroom</a></li>
                 <li><a href="https://www.digitalglobe.com/events" target="_blank">Events</a></li>
               </ul>
@@ -129,7 +129,7 @@
         </ul>
       </div>
       <div class="footer__legal">
-        <p>&copy; <a href="https://www.digitalglobe.com" target="_blank">DigitalGlobe 2016</a> &bull; <a href="https://www.digitalglobe.com/pages/terms-of-use" target="_blank">Terms of Use</a> &bull; <a href="https://www.digitalglobe.com/privacy-policy" target="_blank">Privacy Policy</a></p>
+        <p>&copy; <a href="https://www.digitalglobe.com" target="_blank">DigitalGlobe <?php echo date("Y"); ?></a> &bull; <a href="https://www.digitalglobe.com/legal/website-terms-of-use" target="_blank">Website Terms of Use</a> &bull; <a href="https://www.digitalglobe.com/legal/privacy-policy" target="_blank">Privacy Policy</a></p>
       </div>
     </div>
   </footer>

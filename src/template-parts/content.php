@@ -143,8 +143,8 @@ $article = (is_single()) ? 'article--full' : 'article--snippit';
                   </div>
                   <div class="post__copy">
                     <?php
-      the_excerpt();
-                  ?>
+                      the_excerpt();
+                    ?>
                       <a href="<?php echo esc_url( get_permalink() ) ?>">read more</a>
                   </div>
                 </div>

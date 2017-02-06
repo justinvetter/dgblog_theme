@@ -111,6 +111,7 @@ function dgblog_theme_scripts() {
 
 	wp_enqueue_script( 'dgblog_theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
   wp_enqueue_script( 'dgblog_theme-vendorjs', get_template_directory_uri() . '/assets/scripts/vendor.js' );
+  wp_enqueue_script( 'dgblog_theme-mainjs', get_template_directory_uri() . '/assets/scripts/main.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -161,7 +162,7 @@ function add_nav_menu_items( $items, $args ) {
       </button>
       <div class="search clearfix">
         <div id="searchbar" class="clearfix">
-          <form id="searchform" method="get" action="search.html">
+          <form id="searchform" method="get" action="<?php echo home_url( '/' ); ?>">
             <input type="search" name="s" id="s" placeholder="Search" autocomplete="off">
           </form>
         </div>
@@ -208,3 +209,47 @@ function prev_post_link_attributes($output) {
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 
+
+/**
+* ACF Options Page
+*/
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'DigitalGlobe Theme General Settings',
+		'menu_title'	=> 'DG Theme Settings',
+		'menu_slug' 	=> 'dgtheme-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+    'position'    => 3,
+    'icon_url'    => 'dashicons-admin-site'
+	));
+	
+}
+
+add_filter( 'get_the_archive_title', function ($title) {
+
+    if ( is_category() ) {
+
+            $title = single_cat_title( '', false );
+
+        } elseif ( is_tag() ) {
+
+            $title = single_tag_title( '', false );
+
+        } elseif ( is_author() ) {
+
+            $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+
+        }
+
+    return $title;
+
+});
+
+
+function getBitly($url) {
+$bitly = file_get_contents("http://api.bit.ly/v3/shorten?login=yourbitlyusername&apiKey=yourbitlyAPIkey&longUrl=$url%2F&format=txt");
+return $bitly;
+}
