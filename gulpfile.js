@@ -14,6 +14,9 @@
 // Gulp config file
 var config = require('./gulp-config');
 
+var getPackageJson = function () {
+  return JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+};
 
 // Gulp Vars
 var gulp = require('gulp');
@@ -109,9 +112,17 @@ gulp.task('template:languages', function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('template:bump', function(){
+  return gulp.src(['./package.json', './bower.json'])
+    .pipe(plugin.bump({type: 'patch'}))
+    .pipe(gulp.dest('./'))
+})
 
-gulp.task('template:css', function() {
+
+gulp.task('template:css', ['template:bump'], function() {
+  var pkg = getPackageJson();
   return gulp.src(config.src + '/*.css')
+    .pipe(plugin.replace(/{PKG_VERSION}/g, pkg.version))
     .pipe(gulp.dest(productionDest))
     .pipe(browserSync.stream());
 });
@@ -314,7 +325,7 @@ gulp.task('video', function () {
 
 
 gulp.task('clean', function () {
-  gulp.src(productionDest)
+  gulp.src([productionDest + '/assets', productionDest + '/*.php', productionDest + '/inc', productionDest + '/js', productionDest + '/languages', productionDest + '/template-parts', productionDest + '/*.css', productionDest + '/*.png'])
     .pipe(plugin.clean());
 });
 
