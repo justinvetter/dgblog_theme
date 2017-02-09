@@ -111,6 +111,7 @@ function dgblog_theme_scripts() {
 
 	wp_enqueue_script( 'dgblog_theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
   wp_enqueue_script( 'dgblog_theme-vendorjs', get_template_directory_uri() . '/assets/scripts/vendor.js' );
+  wp_enqueue_script( 'dgblog_marketojs', '//app-sj15.marketo.com/js/forms2/js/forms2.min.js', array(), '20170208', true );
   wp_enqueue_script( 'dgblog_theme-mainjs', get_template_directory_uri() . '/assets/scripts/main.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -156,17 +157,11 @@ add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 function add_nav_menu_items( $items, $args ) {
   ob_start(); // start the output buffer
   ?>
-  <button type="button" class="tcon tcon-search--xcross pull-right hidden-sm hidden-xs hidden-md" id="serachicon" aria-label="toggle search">
-          <span class="tcon-search__item" aria-hidden="true"></span>
-          <span class="tcon-visuallyhidden">toggle search</span>
-      </button>
-      <div class="search clearfix">
-        <div id="searchbar" class="clearfix">
-          <form id="searchform" method="get" action="<?php echo home_url( '/' ); ?>">
-            <input type="search" name="s" id="s" placeholder="Search" autocomplete="off">
-          </form>
-        </div>
-      </div>
+  <button type="button" class="tcon tcon-search--xcross pull-right hidden-sm hidden-xs" id="serachicon" aria-label="toggle search">
+    <span class="tcon-search__item" aria-hidden="true"></span>
+    <span class="tcon-visuallyhidden">toggle search</span>
+  </button>
+
  <?php
   $customSearch = ob_get_clean();
   return $items . $customSearch;
@@ -253,3 +248,8 @@ function getBitly($url) {
 $bitly = file_get_contents("http://api.bit.ly/v3/shorten?login=yourbitlyusername&apiKey=yourbitlyAPIkey&longUrl=$url%2F&format=txt");
 return $bitly;
 }
+
+function custom_excerpt_length( $length ) {
+	return 50;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );

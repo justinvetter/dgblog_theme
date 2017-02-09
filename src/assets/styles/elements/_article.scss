@@ -11,6 +11,9 @@ p {
   max-width: 1024px;
   position: relative;
   margin: 0 auto;
+  &.article--page{
+    padding-bottom: 2em;
+  }
   &.article--snippit {
     width: 100%;
     margin-bottom: 48px;
@@ -61,10 +64,14 @@ p {
       line-height: 1;
     }
   }
+  .row {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .article__featureimage {
-  background-position: top;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -155,11 +162,10 @@ p {
       float: right;
     }
   }
-  &.alignnone{
+  &.alignnone {
     width: 100%;
   }
-  
-  &.aligncenter{
+  &.aligncenter {
     width: 100%;
   }
 }
@@ -270,6 +276,10 @@ p {
       }
     }
   }
+}
+
+.category-uncategorized {
+  @include articleCategories($color-all)
 }
 
 .category-news {

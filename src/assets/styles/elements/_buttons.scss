@@ -10,11 +10,12 @@
 }
 
 .btn__black{
-  color: $color-black !important;
-  border-color: $color-black;
+  color: $color-dark-gray !important;
+  border-color: $color-dark-gray;
   &:hover{
-    background-color: $color-black;
+    background-color: $color-dark-gray;
     color: $color-white !important;
+    border-color: $color-white;
   }
 }
 

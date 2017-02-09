@@ -43,6 +43,7 @@ var knownOptions = {
 var options = minimist(process.argv.slice(2), knownOptions);
 
 var productionDest = plugin.if(options.env === 'production', config.dest, config.temp);
+var production = (options.env === 'production')
 
 var onError = function (err) {
   plugin.notify.onError({
@@ -75,12 +76,11 @@ gulp.task('build', function (callback) {
 // -------------------------------------
 
 gulp.task('serve', ['serve:browsersync'], function () {
-  gulp.watch(config.watchSrc + '/index.html', ['html']);
   gulp.watch(config.watchSrc + config.styles + '/**/*.scss', ['styles']);
   gulp.watch(config.watchSrc + config.scripts + '/main.js', ['scripts:watch']);
   gulp.watch(config.watchSrc + config.images + '/**/*.{jpg,jpeg,png,gif}', ['imagemin']);
   gulp.watch(config.watchSrc + config.images + '/**/*.svg', ['svgmin']);
-  gulp.watch(config.watchSrc + '/**/*.php', ['php']);
+  gulp.watch(config.watchSrc + '/**/*.php', ['template:php']);
 
 });
 
@@ -114,7 +114,7 @@ gulp.task('template:languages', function() {
 
 gulp.task('template:bump', function(){
   return gulp.src(['./package.json', './bower.json'])
-    .pipe(plugin.bump({type: 'patch'}))
+    .pipe(plugin.if(production, plugin.bump({type: 'patch'})))
     .pipe(gulp.dest('./'))
 })
 

@@ -17,9 +17,13 @@ get_header(); ?>
 
 			<section class="page__title">
         <div class="container">
+         <div class="row">
+         <div class="col-sm-12">
           <?php
             the_archive_title( '<h2>', '</h2>' );
           ?>
+          </div>
+          </div>
         </div>
 			</section>
 

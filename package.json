@@ -1,6 +1,6 @@
 {
   "name": "dgblog_theme",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "DigitalGlobe Blog Theme",
   "main": "index.js",
   "scripts": {

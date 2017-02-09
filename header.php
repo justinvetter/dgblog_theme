@@ -13,8 +13,9 @@
   <!DOCTYPE html>
   <html <?php language_attributes(); ?>>
 
-  <head>
+  <head <?php do_action( 'add_head_attributes' ); ?>>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11">
 
@@ -55,14 +56,20 @@
 
 
         <nav class="navbar navbar-default" data-spy="affix" data-offset-top="200">
+
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+             
+              <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#dg-menu-collapse" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+              </button>
+                <button type="button" class="tcon tcon-search--xcross pull-right hidden-lg hidden-md" id="serachicon" aria-label="toggle search">
+                <span class="tcon-search__item" aria-hidden="true"></span>
+                <span class="tcon-visuallyhidden">toggle search</span>
               </button>
             </div>
 
@@ -71,12 +78,20 @@
         'theme_location' => 'primary',
         'container' => 'nav',
         'container_class' => 'navbar-collapse collapse',
-        'container_id' => 'bs-example-navbar-collapse-1',
+        'container_id' => 'dg-menu-collapse',
         'menu_class' => 'nav navbar-nav'
       ));
     ?>
               <!-- /.navbar-collapse -->
+      <div class="search-button clearfix">
+        <div id="searchbar" class="clearfix">
+          <form id="searchform" method="get" action="<?php echo home_url( '/' ); ?>">
+            <input type="search" name="s" id="s" placeholder="Search" autocomplete="off">
+          </form>
+        </div>
+      </div>
           </div>
           <!-- /.container-fluid -->
+
         </nav>
       </header>

@@ -18,22 +18,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-6 col-md-offset-3">
           <h4>Email Subscription</h4>
-          <form>
-            <div class="group">
-              <input type="text" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Name</label>
-            </div>
-
-            <div class="group">
-              <input type="text" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Email</label>
-            </div>
-            <input type="submit" value="Subscribe" class="btn btn__white center-block">
-          </form>
+          <form id="mktoForm_<?php the_field( 'marketo_email_form', 'option'); ?>"></form>
         </div>
       </div>
     </div>
@@ -57,7 +42,6 @@
               <ul>
                 <li><a href="https://www.digitalglobe.com/sales-inquiry" target="_blank">Sales Inquiries</a></li>
                 <li><a href="https://www.digitalglobe.com/contact-us" target="_blank">Contact Us</a></li>
-                <li><a href="/archive">Archive Posts</a></li>
               </ul>
             </div>
             <div class="col-xs-4">
@@ -139,7 +123,7 @@
   <!-- #page -->
 
   <?php wp_footer(); ?>
-
+  <script>MktoForms2.loadForm("//app-sj15.marketo.com", "782-PEE-248", <?php the_field( 'marketo_email_form', 'option'); ?>);</script>
     </body>
 
     </html>

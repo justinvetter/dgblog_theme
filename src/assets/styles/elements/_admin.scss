@@ -1,0 +1,8 @@
+.admin-bar {
+  .affix{
+    top: 32px;
+    @media (max-width: 600px) {
+      top: 0px;
+    }
+  }
+}

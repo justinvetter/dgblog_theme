@@ -1,6 +1,6 @@
 var src = './src';
 var dist = './';
-var temp = './.tmp';
+var temp = './';
 var styles = '/assets/styles';
 var scripts = '/assets/scripts';
 var fonts = '/assets/fonts';

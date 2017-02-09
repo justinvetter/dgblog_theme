@@ -1,7 +1,7 @@
 {
   "name": "dgblog_theme",
   "description": "DigitalGlobe Blog Theme",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "index.js",
   "authors": [
     "Justin Vetter"
@@ -18,10 +18,15 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "modernizer": "^2.8.2",
-    "transformicons": "https://github.com/justinvetter/transformicons.git#^0.4.8",
-    "flexibility": "^2.0.1"
+    "flexibility": "^2.0.1",
+    "transformicons": "https://github.com/justinvetter/transformicons.git#^0.4.8"
   },
   "overrides": {
+    "jquery": {
+      "main": [
+        
+      ]
+    },
     "modernizer": {
       "main": [
         "./modernizer.js"

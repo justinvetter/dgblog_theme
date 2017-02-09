@@ -1,37 +1,67 @@
 //Main Js
-transformicons.add('.tcon');
-console.log('test');
 
-$(function () {
-  var $searchlink = $('#serachicon');
-  var $searchbar = $('#searchbar');
-  var $searchholder = $('.search');
+   
 
-  $('.navbar button').on('click', function (e) {
-    e.preventDefault();
+//    $(function () {
 
-    if ($(this).attr('id') == 'serachicon') {
-      if (!$searchbar.is(":visible")) {
-        // if invisible we switch the icon to appear collapsable
-        $searchholder.show();
-        $searchbar.removeClass('fa-search').addClass('fa-search-minus');
+//        // Define element to slide
+//        var el = $("aside.share");
+//        var related = $('.related');
+// 
+//        // Load top default
+//        el.attr('data-top', el.css('top'));
+//        el.attr('data-bottom', el.css('bottom'));
+//        
+//
+//        // Listen to scroll
+//        $(window).scroll(function () {
+//            clearTimeout($.data(this, "scrollCheck"));
+//            $.data(this, "scrollCheck", setTimeout(function () {
+//              var nBottom = parseInt(el.css('bottom'));
+//              console.log(nBottom);
+//              var nTop = parseInt(el.attr('data-top')) + 200;
+//              if (nBottom >= 380) {
+//                 el.attr('data-bottom', el.css('bottom'));
+//                el.css('opacity', 1);
+//                if ($(window).scrollTop() >= nTop) {
+//                  el.animate({
+//                    top: $(window).scrollTop() - 200
+//                  }, 50);
+//                } else {
+//                  el.animate({
+//                    top: nTop - 200
+//                  })
+//                }
+//              } else if (nBottom < 380) {
+//                 el.attr('data-bottom', el.css('bottom'));
+//                el.css('opacity', 0);
+//                if ($(window).scrollTop() >= nTop) {
+//                  el.animate({
+//                    top: $(window).scrollTop() - 200
+//                  }, 50);
+//                } else {
+//                  el.animate({
+//                    top: nTop - 200
+//                  })
+//                }
+//              }
+//            }, 50));
+//        });
+//    });
 
-      } else {
-        // if visible we switch the icon to appear as a toggle
-        $searchholder.hide();
-        $searchbar.removeClass('fa-search-minus').addClass('fa-search');
-      }
 
-      $searchbar.slideToggle(300, function () {
-        $("#s").val("").focus();
-      });
-    }
-  });
-});
 
-(function ($) {
 
-    var PULLQUOTERIGHT = 'data-pullquoteright';
+
+jQuery(document).ready(function($){
+  transformicons.add('.tcon');
+  
+     $('.navbar-toggle').bind( "touchstart", function(e){
+         e.preventDefault();
+         $('.navbar-collapse').collapse('toggle');
+    });
+  
+   var PULLQUOTERIGHT = 'data-pullquoteright';
     var PULLQUOTELEFT = 'data-pullquoteleft';
 
     $('[' + PULLQUOTERIGHT + ']').each(function () {
@@ -61,56 +91,35 @@ $(function () {
       }
 
     });
+  
+  var $searchlink = $('#serachicon');
+  var $searchbar = $('#searchbar');
+  var $searchholder = $('.search-button');
 
-    $(function () {
+  $('.navbar button').on('click', function (e) {
+    e.preventDefault();
 
-        // Define element to slide
-        var el = $("aside.share");
-        var related = $('.related');
- 
-        // Load top default
-        el.attr('data-top', el.css('top'));
-        el.attr('data-bottom', el.css('bottom'));
+    if ($(this).attr('id') == 'serachicon') {
+      if (!$searchbar.is(":visible")) {
+        $(this).addClass('tcon-transform');
+        // if invisible we switch the icon to appear collapsable
+        $searchholder.show();
+        $searchbar.removeClass('fa-search').addClass('fa-search-minus');
+
+      } else {
+        // if visible we switch the icon to appear as a toggle
         
+        $(this).removeClass('tcon-transform');
+        $searchholder.hide();
+        $searchbar.removeClass('fa-search-minus').addClass('fa-search');
+      }
 
-        // Listen to scroll
-        $(window).scroll(function () {
-            clearTimeout($.data(this, "scrollCheck"));
-            $.data(this, "scrollCheck", setTimeout(function () {
-              var nBottom = parseInt(el.css('bottom'));
-              console.log(nBottom);
-              var nTop = parseInt(el.attr('data-top')) + 200;
-              if (nBottom >= 380) {
-                 el.attr('data-bottom', el.css('bottom'));
-                el.css('opacity', 1);
-                if ($(window).scrollTop() >= nTop) {
-                  el.animate({
-                    top: $(window).scrollTop() - 200
-                  }, 50);
-                } else {
-                  el.animate({
-                    top: nTop - 200
-                  })
-                }
-              } else if (nBottom < 380) {
-                 el.attr('data-bottom', el.css('bottom'));
-                el.css('opacity', 0);
-                if ($(window).scrollTop() >= nTop) {
-                  el.animate({
-                    top: $(window).scrollTop() - 200
-                  }, 50);
-                } else {
-                  el.animate({
-                    top: nTop - 200
-                  })
-                }
-              }
-            }, 50));
-        });
-    });
-
-
-
-}(jQuery));
+      $searchbar.slideToggle(300, function () {
+        $("#s").val("").focus();
+      });
+    }
+  });
+  
+});
 
 // Slide on scroll effect

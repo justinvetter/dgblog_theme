@@ -1,4 +1,11 @@
 .masthead {
   background-color: $color-white;
   height: $glogo-size+4;
+  position: relative;
+  @media (max-width: 1350px) {
+    height: $glogo-size * .85 + 3;
+  }
+  @media (max-width: 940px) {
+    height: $glogo-size * .65 + 2;
+  }
 }

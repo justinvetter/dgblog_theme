@@ -37,7 +37,17 @@
       ?>
         <div class="article__featureimage" style="background-image: url(<?php the_post_thumbnail_url( 'medium' ); ?>)">
           <?php
-    };
+    } else { 
+          $image = get_field('default_feature_image', 'option');
+              
+              
+              $url = $image['url'];
+              $size = 'medium'; // (thumbnail, medium, large, full or custom size)
+              $featureImage = $image['sizes'][$size];
+          ?>
+        <div class="article__featureimage" style="background-image: url(<?php echo $featureImage; ?>)">
+        <?php
+      };
     ?>
             <aside class="pull-right hidden-md hidden-lg hidden-xl">
               <span>
@@ -51,12 +61,14 @@
     <div class="col-md-6 col-sm-12">
       <div class="article__body post">
         <div class="post__meta">
-          <h5 class="post__author">By: <?php if (get_post_meta($post->ID, 'guest-author', true)) :
-            echo get_post_meta($post->ID, 'guest-author', true);
-              else:
+          <h5 class="post__author">By: <?php if ( get_field('author') ):
+              the_field('author');
+            elseif(get_post_meta($post->ID, 'guest-author', true)):
+              echo get_post_meta($post->ID, 'guest-author', true);
+            else:
               echo 'DigitalGlobe';
-              endif;
-            ?></h5>
+            endif;
+          ?></h5>
         </div>
         <div class="post__copy">
           <?php
@@ -66,5 +78,6 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </article><!-- #post-## -->

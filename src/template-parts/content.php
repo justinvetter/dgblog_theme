@@ -79,11 +79,17 @@ $article = (is_single()) ? 'article--full' : 'article--snippit';
           <!-- End Share section -->
           <div class="article__body post">
             <div class="post__meta">
-              <?php the_subtitle('<h3 class="post__subtitle">', '</h3>'); ?>
-                <h5 class="post__author">By: <?php if (get_post_meta($post->ID, 'guest-author', true)) :
-                      echo get_post_meta($post->ID, 'guest-author', true);
+               <?php if ( get_field('subtitle') ):
+                echo '<h3 class="post__subtitle">' . the_field('subtitle') . '<h3>';
+              else:
+                the_subtitle('<h3 class="post__subtitle">', '</h3>'); 
+              endif; ?>
+                <h5 class="post__author">By: <?php if ( get_field('author') ):
+                          the_field('author');
+                        elseif(get_post_meta($post->ID, 'guest-author', true)):
+                          echo get_post_meta($post->ID, 'guest-author', true);
                         else:
-                        echo 'DigitalGlobe';
+                          echo 'DigitalGlobe';
                         endif;
                       ?></h5>
             </div>
@@ -134,10 +140,12 @@ $article = (is_single()) ? 'article--full' : 'article--snippit';
               <div class="col-md-6 col-sm-12">
                 <div class="article__body post">
                   <div class="post__meta">
-                    <h5 class="post__author">By: <?php if (get_post_meta($post->ID, 'guest-author', true)) :
-                      echo get_post_meta($post->ID, 'guest-author', true);
+                    <h5 class="post__author">By: <?php if ( get_field('author') ):
+                          the_field('author');
+                        elseif(get_post_meta($post->ID, 'guest-author', true)):
+                          echo get_post_meta($post->ID, 'guest-author', true);
                         else:
-                        echo 'DigitalGlobe';
+                          echo 'DigitalGlobe';
                         endif;
                       ?></h5>
                   </div>
