@@ -105,8 +105,8 @@ $article = (is_single()) ? 'article--full' : 'article--snippit';
               
               ?>
                 <div class="article__pagination">
-                  <?php previous_post_link('%link', 'Previous'); ?>
-                    <?php next_post_link('%link', 'Next'); ?>
+                    <?php next_post_link('%link', 'Previous Post'); ?>
+                  <?php previous_post_link('%link', 'Next Post'); ?>
                 </div>
             </div>
 
@@ -124,6 +124,7 @@ $article = (is_single()) ? 'article--full' : 'article--snippit';
                 <?php
               if (has_post_thumbnail()) {
                 ?>
+                 <a href="<?php echo esc_url( get_permalink() ) ?>" class="article__featureimage--link">
                   <div class="article__featureimage" style="background-image: url(<?php the_post_thumbnail_url( 'medium' ); ?>)">
                     <?php
               };
@@ -135,6 +136,7 @@ $article = (is_single()) ? 'article--full' : 'article--snippit';
                         <?php the_time('M y') ?>
                       </aside>
                   </div>
+                  </a>
               </div>
 
               <div class="col-md-6 col-sm-12">
