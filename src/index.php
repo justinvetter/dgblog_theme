@@ -45,8 +45,8 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_navigation( array(
-        'prev_text'  => 'Previous',
-        'next_text'  => 'Next'
+        'next_text'  => 'Previous Page',
+        'prev_text'  => 'Next Page'
       ));
 
 		else :
