@@ -32,6 +32,8 @@
 
   <div class="row no-pad is-flex" data-style="display: flex;">
     <div class="col-md-6 col-sm-12">
+     
+       <a href="<?php echo esc_url( get_permalink() ) ?>" class="article__featureimage--link">
       <?php
     if (has_post_thumbnail()) {
       ?>
@@ -56,7 +58,9 @@
               <?php the_time('M y') ?>
             </aside>
         </div>
+              </a>
     </div>
+
 
     <div class="col-md-6 col-sm-12">
       <div class="article__body post">
