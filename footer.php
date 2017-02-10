@@ -123,7 +123,21 @@
   <!-- #page -->
 
   <?php wp_footer(); ?>
-  <script>MktoForms2.loadForm("//app-sj15.marketo.com", "782-PEE-248", <?php the_field( 'marketo_email_form', 'option'); ?>);</script>
+  <script>MktoForms2.loadForm("//app-sj15.marketo.com", "782-PEE-248", <?php the_field( 'marketo_email_form', 'option'); ?>, function(form) {
+   // Add an onSuccess handler
+   form.onSuccess(function(values, followUpUrl) {
+     var email = form.vals().Email,
+       html = "<h4>Thank you ($email) for signing up.<br/></h4>";
+
+     html = html.replace("$email", email);
+
+     // Get the form's jQuery element and hide it
+     form.getFormElem().hide();
+     // Return false to prevent the submission handler from taking the lead to the follow up url
+     form.getFormElem().after(html);
+     return false;
+   });
+ });</script>
     </body>
 
     </html>
