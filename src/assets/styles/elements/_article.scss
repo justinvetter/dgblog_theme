@@ -37,6 +37,13 @@ p {
   }
 }
 
+.article__featureimage--link{
+  display: block;
+  width: 100%;
+  height: 100%;
+  @include clearfix
+}
+
 .article__header {
   color: white;
   background-color: $color-all;
