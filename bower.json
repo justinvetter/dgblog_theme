@@ -1,7 +1,7 @@
 {
   "name": "dgblog_theme",
   "description": "DigitalGlobe Blog Theme",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "index.js",
   "authors": [
     "Justin Vetter"
