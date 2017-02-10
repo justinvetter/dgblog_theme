@@ -3,6 +3,7 @@ body {
   font-family: $font-din;
   font-size: $browser-base-size;
   background-color: $color-mid-gray;
+  overflow-x: hidden;
 }
 
 strong,
