@@ -11,7 +11,7 @@ p {
   max-width: 1024px;
   position: relative;
   margin: 0 auto;
-  &.article--page{
+  &.article--page {
     padding-bottom: 2em;
   }
   &.article--snippit {
@@ -37,7 +37,7 @@ p {
   }
 }
 
-.article__featureimage--link{
+.article__featureimage--link {
   display: block;
   width: 100%;
   height: 100%;
@@ -243,6 +243,22 @@ p {
   }
   .post__copy {
     padding-bottom: 1em;
+    ul {
+      li {
+        list-style: disc;
+      }
+    }
+    ol {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: decimal;
+      }
+    }
+    li {
+      font-weight: 100;
+      margin-left: 1em;
+    }
   }
   pq {
     font-weight: inherit;
